@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark</title>
+    <link rel="icon" href="./bookmark.png">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Caption:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <main class="interface py-5 position-relative">
+
+
+        <div class="container d-flex flex-column justify-content-center align-items-center mb-3">
+
+            <h1 class="py-2 position-relative">Bookmarker</h1>
+        </div>
+
+
+
+        <div
+            class="container bookmaker-body w-100 p-3 py-5 d-flex flex-column justify-content-center align-items-center">
+
+
+            <h2>
+
+                <i class="fa-solid fa-bookmark"></i>
+                "Bookmark your favorite sites"
+
+                <i class="fa-solid fa-bookmark"></i>
+            </h2>
+
+            <div class="site-name w-100 d-flex flex-column justify-content-center">
+                <label for="bookmakeName" class="fw-semibold pb-2">
+                    <i class="fa-solid fa-book-bookmark pe-2"></i>
+                    Site Name
+                </label>
+
+                <input type="text" placeholder="Bookmark Name" class="form-control " id="bookmakeName">
+
+
+            </div>
+
+
+
+            <div class="site-url w-100 d-flex flex-column justify-content-center mt-5">
+                <label for="bookmakeURL" class="fw-semibold pb-2">
+                    <i class="fa-solid fa-link pe-2"></i>
+                    Site URL
+                </label>
+
+                <input type="text" placeholder="Bookmark URL" class="form-control" id="bookmakeURL">
+            </div>
+
+            <!-- Model of submit button -->
+            <button onclick="getvalues()"  class="btn btn-submit px-5">Submit</button>
+        </div>
+
+        <table class="container table mt-4 text-center bg-light ">
+
+            <thead>
+                <th>Index</th>
+                <th>Website Name</th>
+                <th>Visit</th>
+                <th>Delete</th>
+            </thead>
+
+            <tbody id="tableContent">
+            </tbody>
+
+        </table>
+
+
+
+        <!-- model -->
+
+
+        <div class="modal d-none" id="exampleModal" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        
+                        <span class="rounded-circle me-2 circle1"></span>
+                        <span class="rounded-circle me-2 circle2"></span>
+                        <span class="rounded-circle me-2 circle3"></span>
+                        <button id="closeBtn" type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
+                        <!-- <button type="button" class="btn-close" aria-label="Close" data-close-button="all"></button> -->
+                        
+                    </div>
+                    <div class="modal-body">
+                        <p>Site Name or Url is not valid, Please follow the rules below :</p>
+                        <ol class="rules list-unstyled m-0">
+                            <li>
+                                <i class="fa-regular fa-circle-right p-2"></i>
+                                Site name must contain at least 3 characters
+                            </li>
+                            <li>
+                                <i class="fa-regular fa-circle-right p-2"></i>
+                                Site URL must be a valid one
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
